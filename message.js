@@ -25,27 +25,31 @@ sendBtn.onclick = function () {
             const requestOptions = {
                 method: POST,
                 headers: {
-                    "Content-Type":"application/json";
-                    "Authorization": `Bearer ${API_KEY}`
+                    "Content-Type":"application/json",
+                    "Authorization":`Bearer ${API_KEY}`
                 },
                 body: JSON.stringify({
-                    model="gpt-3.5-turbo",
-                    messages=[
+                    "model":"gpt-3.5-turbo",
+                    "messages":[
                         {
                             "role": "user",
                             "content": messageBar.value
                         }
                     ],
-                    temperature=0.8,
-                    max_tokens=55,
-                    top_p=1,
-                    frequency_penalty=0.5,
-                    presence_penalty=0.5,
-                    stop=["\n\n", "GLaDOS:", "Aperture Technician:"]
+                    "temperature":"0.8",
+                    "max_tokens":"55",
+                    "top_p":"1",
+                    "frequency_penalty":"0.5",
+                    "presence_penalty":"0.5",
+                    "stop":["\n\n", "GLaDOS:", "Aperture Technician:"]
                 })
             }
 
-            fetch(API_URL, requestOptions)
+            fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
+                console.log(data);
+            }).catch((error) => {
+                console.log(error);
+            })
         }, 100);
     }
 }

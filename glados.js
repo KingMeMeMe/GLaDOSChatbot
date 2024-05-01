@@ -91,19 +91,21 @@ function refine(message, prompt) {
         prompt=gen_response(prompt)
         }
     else if (!person.includes('MORALITY CORE ACTIVE.') || !person.includes('INTELLIGENCE DAMPENING CORE ACTIVE.')){
-        if prompt.count(':') > 35:
-            #measuring length of convo
+        if ((prompt.match(/:/g) || []).length > 35){
             prompt+='[GLaDOS is becoming irritated at the technician for distracting her from her work.] \n GLaDOS:'
             prompt=gen_response(prompt)
-        else if prompt.count(':') > 45:
+            }
+        else if ((prompt.match(/:/g) || []).length > 45){
             prompt+='[The technician is getting on GLaDOS\'s nerves. She prepares to threaten them with violence if they do not leave her alone.] \n GLaDOS:'
             prompt=gen_response(prompt)
-        else if prompt.count(':') > 50:
+            }
+        else if ((prompt.match(/:/g) || []).length > 50){
             print('GLaDOS: Goodbye, technician. \n')
             prompt+='GLaDOS: Goodbye, technician. \n [GLaDOS follows through on her threat.] \n'
             prompt=gen_response(prompt)
             print('[The room grows dark.] \n \n \n ------------ \n End of Technician Transcript')
             t=False
+        }
     }
 }
 
@@ -126,7 +128,7 @@ sendBtn.onclick = function () {
         messageBox.insertAdjacentHTML("beforeend", message);
         messageBox.insertAdjacentHTML("beforeend", response);
 
-        gen_response(refine(UserTypedMessage))
+        gen_response(refine(UserTypedMessage, prompt))
     }
 }
 

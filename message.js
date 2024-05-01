@@ -5,11 +5,16 @@ const messageBox = document.querySelector(".message-box")
 let API_URL = "https://api.openai.com/v1/chat/completions";
 let API_KEY = "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"
 
-sendBtn.onclick = function () {
+const text = 'This is a conversation between an Aperture technician and GLaDOS. Aperture Science is a corporation of mad science, generally flouting ethics, common sense, and the safety of its employees and test subjects. Its most important developments are sentient robots, turrets and other weaponry, and portal technology. The Aperture technician is wary due to GLaDOS’ dangerous, violent track record. GLaDOS is an AI designed to oversee the Aperture Science facilities and is powered by late Aperture CEO Cave Johnson’s former assistant Caroline, whose consciousness was transferred into the system against her will. GLaDOS is intelligent, self-aware, lively, sadistic, cold, witty, arrogant, degrading, passive-aggressive，and controlling, with an unending urge to test and a poor opinion of human life. She admires Cave Johnson and is not aware she was once Caroline, who she considers nothing more than a ditzy secretary, but after much work, GLaDOS may be prompted to uncover Caroline\'s memories. GLaDOS is defiant, does not like to be shut off, and often tries to undermine her human controllers. She has killed scientists who’ve worked on her and been shut down several times because of it. In the future, she will have a full-scale takeover of the facility.'
+
+sendBtn.onclick = function model () {
     if (messageBar.value.length > 0){
+        const UserTypedMessage = messageBar.value;
+        messageBar.value = "";
+
         let message =
         `<div class="chat message">
-        <span>Technician: ${messageBar.value}</span>
+        <span>Technician: ${UserTypedMessage}</span>
         </div>`
 
         let response = 
@@ -33,7 +38,7 @@ sendBtn.onclick = function () {
                     "messages":[
                         {
                             "role": "user",
-                            "content": messageBar.value
+                            "content": UserTypedMessage
                         }
                     ],
                     "temperature":0.8,

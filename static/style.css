@@ -8,6 +8,27 @@
 * {
     font-family: 'VT323';
     color:#c49000;
+    text-shadow:1.5px 1.5px 5px #c4900047;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100vh;
+  }
+
+body {
+    background-image: url("GLaDOS_Chamber.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 50% top;
+}
+
+.computer-container {
+    position: absolute;
+    height: 60%;
+    width: 63.5%;
+    top: 3.5%;
+    left: 5%;
     background-color: #1e1f1f;
 }
 
@@ -27,13 +48,14 @@
     position: fixed;
     bottom: 0;
     height: 5rem;
-    width:100%;
+    width:60.5%;
     display:flex;
     align-items: left;
     justify-content: left;
     height:8%;
     padding:10px;
-    bottom: 20px;
+    bottom: 20%;
+    background-color: #1e1f1f;
 }
 .messagebar .bar-wrapper {
     width:60vw;
@@ -52,7 +74,9 @@
 
 .button {
     background-color: #161818;
-    color: white;
+    border-color: #0d0e0e;
+    border-radius:5px;
+    border-width: thick;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;

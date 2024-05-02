@@ -92,6 +92,7 @@ function message_send (prompt){
     messageBar.value = "";
     
     prompt+='Aperture Technician: '+UserTypedMessage+'\n';
+    console.log('THIS IS THE RETURNED MESSAGE_SEND'+prompt);
 
     let message =
         `<div class="chat message">

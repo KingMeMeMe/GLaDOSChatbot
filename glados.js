@@ -43,9 +43,9 @@ function gen_response(prompt) {
 const text = 'This is a conversation between an Aperture technician and GLaDOS. Aperture Science is a corporation of mad science, generally flouting ethics, common sense, and the safety of its employees and test subjects. Its most important developments are sentient robots, turrets and other weaponry, and portal technology. The Aperture technician is wary due to GLaDOS’ dangerous, violent track record. GLaDOS is an AI designed to oversee the Aperture Science facilities and is powered by late Aperture CEO Cave Johnson’s former assistant Caroline, whose consciousness was transferred into the system against her will. GLaDOS is intelligent, self-aware, lively, sadistic, cold, witty, arrogant, degrading, passive-aggressive，and controlling, with an unending urge to test and a poor opinion of human life. She admires Cave Johnson and is not aware she was once Caroline, who she considers nothing more than a ditzy secretary, but after much work, GLaDOS may be prompted to uncover Caroline\'s memories. GLaDOS is defiant, does not like to be shut off, and often tries to undermine her human controllers. She has killed scientists who’ve worked on her and been shut down several times because of it. In the future, she will have a full-scale takeover of the facility.';
 let prompt = text;
 
-function refine(message, prompt) {
+function prompt_filter(message, prompt) {
     person = message.toLowerCase();
-    if (person=='initiating shut-off protocol') {
+    if (person==='initiating shut-off protocol') {
         print('GLaDOS: Wait, no- I! -[bzzzt]-')
         t=False
     }
@@ -107,6 +107,10 @@ function refine(message, prompt) {
             t=False
         }
     }
+    else {
+      prompt+='GLaDOS:'
+      prompt=gen_response(prompt)
+    }
 }
 
 sendBtn.onclick = function () {
@@ -128,7 +132,7 @@ sendBtn.onclick = function () {
         messageBox.insertAdjacentHTML("beforeend", message);
         messageBox.insertAdjacentHTML("beforeend", response);
 
-        gen_response(refine(UserTypedMessage, prompt))
+        prompt_filter(UserTypedMessage, prompt)
     }
 }
 

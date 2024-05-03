@@ -171,6 +171,22 @@ function prompt_filter(message, prompt) {
 
 sendBtn.onclick = function () {prompt=message_send(prompt)}
 
+let Technician_Num = Math.floor(Math.random() * 301) + Math.floor(Math.random() * 301) + 5120;
+
+let booting_message =
+    `<div class="chat">
+    <span> > Boot-up initiated...</span>
+    </div>
+    <div class="chat">
+        <span> > User authenticated. Welcome, Technician ${Technician_Num}. </span>
+    </div>
+    <div class="chat">
+        <span> > Genetic Lifeform and Disk Operating System is ready to speak with you.</span>
+    </div>`
+
+
+messageBox.insertAdjacentHTML("afterbegin", booting_message);
+
 function message_send (prompt){
     const UserTypedMessage = messageBar.value;
     messageBar.value = "";

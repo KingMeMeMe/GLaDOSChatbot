@@ -61,7 +61,7 @@ body {
     display:flex;
     align-items: left;
     justify-content: left;
-    bottom: -61.2%;
+    bottom: -57.2%;
     background-color: #1e1f1f;
     border: solid #0d0e0e 0.2rem;
     border-radius: 2px;
@@ -124,10 +124,16 @@ body {
     position:absolute;
     top:0%;
     left:50%;
+    animation: breathing2 2s ease-in-out alternate infinite;
+}
+@keyframes breathing2 {
+    0% {transform:scale(75.5%) translateX(-28%) translateY(-23%)}
+    50% { transform: scale(75.5%) translateX(-28%) translateY(-22.5%)}
+    100%  { transform: scale(75.5%) translateX(-28%) translateY(-23%)}
 }
 .emoting {  
     animation: emote 1s ease-in-out alternate 2;
 }
 @keyframes emote { 
-    to { transform:translateY(-0.20%);}
+    to { transform: scale(75.5%) translateX(-28%) translateY(-0.30%);}
 }

@@ -114,10 +114,20 @@ body {
     max-height: 95vmin;
     transform-origin: center;
     transform: scale(75%) translateY(-25%) translateX(-20%);
+    animation: breathing 2s ease-in-out alternate infinite;
+}
+@keyframes breathing {
+    to { transform: scale(75.5%) translateY(-28%) translateX(-20%);}
 }
 
 .GLaDOS_Head {
     position:absolute;
     top:0%;
     left:50%;
+}
+.emoting {  
+    animation: emote 1s ease-in-out alternate 2;
+}
+@keyframes emote { 
+    to { transform:translateY(-0.20%);}
 }

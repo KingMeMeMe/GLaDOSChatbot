@@ -191,6 +191,7 @@ function message_send (prompt){
     messageBox.insertAdjacentHTML("beforeend", message);
     messageBox.insertAdjacentHTML("beforeend", response);
     
+    
     prompt = prompt_filter(UserTypedMessage, prompt);
     console.log('THIS IS WITHIN MESSAGE_SEND'+prompt);
     return prompt;

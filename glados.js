@@ -2,6 +2,8 @@ const messageBar = document.querySelector(".bar-wrapper input");
 const sendBtn = document.querySelector(".bar-wrapper button");
 const messageBox = document.querySelector(".message-box")
 
+
+
 let API_URL = "https://api.openai.com/v1/chat/completions";
 let API_KEY = "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"
 let reply;
@@ -110,4 +112,17 @@ function message_send (prompt){
     prompt = prompt_filter(UserTypedMessage, prompt);
     console.log('THIS IS WITHIN MESSAGE_SEND'+prompt);
     return prompt;
+}
+
+function emote {
+    document.getElementsByClassName("GLaDOS_Head").animate(
+        [
+            { transform: "translateY(0px)" },
+            { transform: "translateY(-300px)" },
+          ],
+          {
+            duration: 0.5,
+            iterations: 2,
+          },
+    )
 }
